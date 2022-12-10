@@ -64,38 +64,39 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email'     => 'required|email:rfc,dns',
+            'email'     => 'required|email',
             'password'  => 'required',
         ]);
 
         $credentials = $request->only('email', 'password');
- 
-        if (Auth::attempt($credentials)) {
-            #GET DATA USERS
-            $user = User::where('email',$request->email)->first();
-            if($user->status == 'active'){
-                #CREATE NEW TOKEN
-                $token_app=env('TOKEN_APP');
-                $token = auth()->user()->createToken($token_app)->accessToken;
-                $user = Auth::user();
-                #ADD SESSION
-                Session::put('name',$user->name);
-                Session::put('phone',$user->phone);
-                Session::put('email',$request->email);
-                Session::put('token',$token);
-                Session::put('id',$user->id);
-                Session::put('cms_role_id',$user->cms_role_id);
 
-                Nfs::insertLogs('login web');
+        $user = User::where('email',$request->email)->first();
 
-                return redirect()->intended('dashboard');
-            }elseif($user->status == 'notactive'){
-                return back()->with('error','please check email to verification account');
+        if($user->status == 'active'){
+            if (Auth::attempt($credentials)) {
+                #GET DATA USERS
+                    #CREATE NEW TOKEN
+                    $token_app=env('TOKEN_APP');
+                    $token = auth()->user()->createToken($token_app)->accessToken;
+                    $user = Auth::user();
+                    #ADD SESSION
+                    Session::put('name',$user->name);
+                    Session::put('phone',$user->phone);
+                    Session::put('email',$request->email);
+                    Session::put('token',$token);
+                    Session::put('id',$user->id);
+                    Session::put('cms_role_id',$user->cms_role_id);
+
+                    Nfs::insertLogs('login web');
+
+                    return redirect()->intended('dashboard');
             }else{
-                return back()->with('error','your account suspend by admin, please contact admin to solve this problem');
+                return back()->with('error','somethings else please check email or password');
             }
+        }elseif($user->status == 'notactive'){
+            return back()->with('error','please check email to verification account');
         }else{
-            return back()->with('error','somethings else please try again');
+            return back()->with('error','your account suspend by admin, please contact admin to solve this problem');
         }
     }
 

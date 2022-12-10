@@ -76,28 +76,28 @@
 
           <li class="menu-item @if($link=='cms_role') active @endif">
             <a href="{{url('admin/role')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bx-key"></i>
               <div data-i18n="Analytics">Roles Management</div>
             </a>
           </li>
 
           <li class="menu-item @if($link=='users') active @endif">
             <a href="{{url('admin/users')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bx-user"></i>
               <div data-i18n="Analytics">Users Management</div>
             </a>
           </li>
 
           <li class="menu-item @if($link=='cms_settings') active @endif">
             <a href="{{url('admin/settings')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bxs-cog"></i>
               <div data-i18n="Analytics">Settings</div>
             </a>
           </li>
-
+          
           <li class="menu-item @if($link=='cms_logs') active @endif">
             <a href="{{url('admin/logs')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bxs-flag-alt"></i>
               <div data-i18n="Analytics">Log Users Access</div>
             </a>
           </li>
@@ -113,28 +113,28 @@
 
           <li class="menu-item @if($link=='cms_menus') active @endif">
             <a href="{{url('admin/menus')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bx-book-content"></i>
               <div data-i18n="Analytics">Menu Management</div>
             </a>
           </li>
 
           <li class="menu-item @if($link=='cms_modules') active @endif">
             <a href="{{url('admin/modules')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bx-code-alt"></i>
               <div data-i18n="Analytics">Module Generator</div>
             </a>
           </li>
 
           <li class="menu-item @if($link=='cms_emails') active @endif">
             <a href="{{url('admin/emails')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bx-envelope"></i>
               <div data-i18n="Analytics">Email Templates</div>
             </a>
           </li>
 
           <li class="menu-item @if($link=='cms_document') active @endif">
             <a href="{{url('admin/document')}}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <i class="menu-icon tf-icons bx bx-book-open"></i>
               <div data-i18n="Analytics">Documentation</div>
             </a>
           </li>

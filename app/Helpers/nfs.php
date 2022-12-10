@@ -36,7 +36,7 @@ class Nfs {
         if($name == 'app'){
             $app = CmsSettings::where('name','app')->first();
 
-            if($app){
+            if($app->value){
                 $result = $app->value;
             }else{
                 $result = 'App';
@@ -46,7 +46,7 @@ class Nfs {
         if($name == 'email'){
             $email = CmsSettings::where('name','email')->first();
 
-            if($email){
+            if($email->value){
                 $result = $email->value;
             }else{
                 $result = 'demo@gmail.com';
@@ -56,7 +56,7 @@ class Nfs {
         if($name == 'phone'){
             $phone = CmsSettings::where('name','phone')->first();
 
-            if($phone){
+            if($phone->value){
                 $result = $phone->value;
             }else{
                 $result = '0822233344455';
@@ -76,7 +76,7 @@ class Nfs {
         if($name == 'logo'){
             $logo = CmsSettings::where('name','logo')->first();
 
-            if($logo){
+            if($logo->image){
                 $result = url('storage/'.$logo->image);
             }else{
                 $result = url('asstes/custom/default/logo.png');
@@ -86,7 +86,7 @@ class Nfs {
         if($name == 'favicon'){
             $favicon = CmsSettings::where('name','favicon')->first();
 
-            if($favicon){
+            if($favicon->image){
                 $result = url('storage/'.$favicon->image);
             }else{
                 $result = url('asstes/custom/default/favicon.ico');
@@ -96,7 +96,7 @@ class Nfs {
         if($name == 'profile_image'){
             $profile_image = CmsSettings::where('name','profile_image')->first();
 
-            if($profile_image){
+            if($profile_image->image){
                 $result = url('storage/'.$profile_image->image);
             }else{
                 $result = url('asstes/custom/default/profile.png');

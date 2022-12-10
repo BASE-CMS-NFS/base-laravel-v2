@@ -75,35 +75,38 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         $user = User::where('email',$request->email)->first();
+        if($user){
+            if($user->status == 'active'){
+                if (Auth::attempt($credentials)) {
+                    #GET DATA USERS
+                        #CREATE NEW TOKEN
+                        $token_app=env('TOKEN_APP');
+                        $token = auth()->user()->createToken($token_app)->accessToken;
+                        $user = Auth::user();
+                        #ADD SESSION
+                        Session::put('name',$user->name);
+                        Session::put('phone',$user->phone);
+                        Session::put('email',$request->email);
+                        Session::put('token',$token);
+                        Session::put('id',$user->id);
+                        Session::put('cms_role_id',$user->cms_role_id);
 
-        if($user->status == 'active'){
-            if (Auth::attempt($credentials)) {
-                #GET DATA USERS
-                    #CREATE NEW TOKEN
-                    $token_app=env('TOKEN_APP');
-                    $token = auth()->user()->createToken($token_app)->accessToken;
-                    $user = Auth::user();
-                    #ADD SESSION
-                    Session::put('name',$user->name);
-                    Session::put('phone',$user->phone);
-                    Session::put('email',$request->email);
-                    Session::put('token',$token);
-                    Session::put('id',$user->id);
-                    Session::put('cms_role_id',$user->cms_role_id);
+                        Nfs::insertLogs('login web');
 
-                    Nfs::insertLogs('login web');
-
-                    return redirect()->intended('dashboard');
+                        return redirect()->intended('dashboard');
+                }else{
+                    return back()->with('error','somethings else please check email or password');
+                }
+            }elseif($user->status == 'notactive'){
+                //send email verifikasi
+                CmsVerifikasi::insertData($request->email);
+                Mail::to($request->email)->send(new EmailVerifikasi($request->email,Helper::urlVerifikasi($request->email)));
+                return back()->with('error','please check email to verification account');
             }else{
-                return back()->with('error','somethings else please check email or password');
+                return back()->with('error','your account suspend by admin, please contact admin to solve this problem');
             }
-        }elseif($user->status == 'notactive'){
-            //send email verifikasi
-            CmsVerifikasi::insertData($request->email);
-            Mail::to($request->email)->send(new EmailVerifikasi($request->email,Helper::urlVerifikasi($request->email)));
-            return back()->with('error','please check email to verification account');
         }else{
-            return back()->with('error','your account suspend by admin, please contact admin to solve this problem');
+            return back()->with('error','users not found , please register');
         }
     }
 

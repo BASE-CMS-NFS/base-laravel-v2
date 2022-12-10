@@ -13,7 +13,7 @@
                     <span class="app-brand-logo demo">
                       <img src="{{url('assets/img/logo.png')}}" alt="" width="60px">
                     </span>
-                    <span class="app-brand-text demo text-body fw-bolder">{{Nfs::app()}}</span>
+                    <span class="app-brand-text demo text-body fw-bolder">{{Nfs::content('app')}}</span>
                   </a>
                 </div>
 

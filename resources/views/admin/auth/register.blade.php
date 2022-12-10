@@ -10,9 +10,9 @@
                 <div class="app-brand justify-content-center">
                   <a href="{{url('/')}}" class="app-brand-link gap-2">
                     <span class="app-brand-logo demo">
-                     <img src="{{url('assets/img/logo.png')}}" alt="" width="60px">
+                     <img src="{{Nfs::content('logo')}}" alt="" width="60px">
                     </span>
-                    <span class="app-brand-text demo text-body fw-bolder">{{Nfs::app()}}</span>
+                    <span class="app-brand-text demo text-body fw-bolder">{{Nfs::content('app')}}</span>
                   </a>
                 </div>
 

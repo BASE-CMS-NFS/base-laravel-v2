@@ -2,9 +2,9 @@
   <div class="app-brand demo">
     <a href="{{url('dashboard')}}" class="app-brand-link">
       <span class="app-brand-logo demo">
-        <img src="{{url('assets/img/logo.png')}}" alt="" width="40px">
+        <img src="{{Nfs::content('logo')}}" alt="" width="40px">
       </span>
-      <span class="app-brand-text demo menu-text fw-bolder ms-2">{{Nfs::app()}}</span>
+      <span class="app-brand-text demo menu-text fw-bolder ms-2">{{Nfs::content('app')}}</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

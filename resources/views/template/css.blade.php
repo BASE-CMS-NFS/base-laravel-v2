@@ -1,4 +1,4 @@
-<link rel="icon" type="image/x-icon" href="{{url('assets/img/favicon/favicon.ico')}}" />
+<link rel="icon" type="image/x-icon" href="{{Nfs::content('favicon')}}" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />

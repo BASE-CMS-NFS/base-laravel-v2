@@ -1,6 +1,27 @@
 @extends('template.content')
 @section('content')
 
+<div class="mb-3">
+  <div class="card-body">
+    <div class="row">
+      <!-- List group Numbered -->
+      <div class="col-sm-12">
+        <small class="text-light fw-semibold">Setting Cms Required</small>
+        <div class="demo-inline-spacing mt-3">
+          <ol class="list-group list-group-numbered">
+            <li class="list-group-item">app (penamaan aplikasi atau website)</li>
+            <li class="list-group-item">email (email smtp wajib di isi)</li>
+            <li class="list-group-item">phone (wajib di isi)</li>
+            <li class="list-group-item">domain (wajib di isi nama domain)</li>
+            <li class="list-group-item">favicon (wajib di isi image / ico, max 16 kb)</li>
+            <li class="list-group-item">logo (wajib di isi image logo website)</li>
+            <li class="list-group-item">profile_image (wajib di isi image logo profile default)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="mb-3">
   <nav class="navbar navbar-example navbar-expand-lg navbar-light bg-light">

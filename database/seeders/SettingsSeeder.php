@@ -19,33 +19,38 @@ class SettingsSeeder extends Seeder
         DB::table('cms_settings')->insert([
             [
                 'name'       => 'app',
-                'value'       => 'app',
+                'value'      => 'app',
                 'description'=> 'silahkan isi nama aplikasi',
             ],
             [
                 'name'       => 'email',
-                'value'       => 'demo@gmail.com',
+                'value'      => 'demo@gmail.com',
                 'description'=> 'silahkan isi email smtp',
             ],
             [
                 'name'       => 'domain',
-                'value'       => 'demo.com',
+                'value'      => 'demo.com',
                 'description'=> 'silahkan isi domain',
             ],
             [
                 'name'       => 'phone',
-                'value'       => '088111222334',
+                'value'      => '088111222334',
                 'description'=> 'silahkan isi phone',
             ],
             [
                 'name'       => 'favicon',
-                'value'       => 'favicon',
+                'value'      => 'favicon',
                 'description'=> 'silahkan isi favicon',
             ],
             [
                 'name'       => 'logo',
-                'value'       => 'logo',
+                'value'      => 'logo',
                 'description'=> 'silahkan isi logo',
+            ],
+            [
+                'name'       => 'profile_image',
+                'value'      => 'isikan profile image user default',
+                'description'=> 'silahkan isi profile',
             ],
             
 

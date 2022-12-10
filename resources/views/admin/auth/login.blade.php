@@ -52,7 +52,7 @@
 
               <!-- /Logo -->
               <h4 class="mb-2">Selamat Datang di {{Nfs::app()}}! 👋</h4>
-              <p class="mb-4">Silahkan login, untuk mengelola peternakan anda</p>
+              <p class="mb-4">Silahkan login</p>
 
               <form id="formAuthentication" class="mb-3" action="{{url('sign-in')}}" method="POST">
                 @csrf

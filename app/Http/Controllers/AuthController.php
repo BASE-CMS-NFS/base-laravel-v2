@@ -26,8 +26,10 @@ use Wa;
 use App\Models\User;
 use App\Models\Cms\Role;
 use App\Models\Cms\CmsEmails;
+use App\Models\Cms\CmsVerifikasi;
 
 use App\Mail\Emails;
+use App\Mail\EmailVerifikasi;
 
 class AuthController extends Controller
 {
@@ -156,9 +158,19 @@ class AuthController extends Controller
         //
     }
 
-    public function validasiEmail()
+    public function validasiEmail($email)
     {
-        //
+        $data_email = Nfs::Decrypt($email);
+        $check      = CmsVerifikasi::where('email',$data_email)
+                      ->where('status','waiting')
+                      ->first();
+
+        if(Date::now() <= $check->expired_at){
+            CmsVerifikasi::where('email',$data_email)->update([
+                "status"    =>'approve',
+                "updated_at"=>date('Y-m-d')
+            ]);
+        }
     }
 
     /**

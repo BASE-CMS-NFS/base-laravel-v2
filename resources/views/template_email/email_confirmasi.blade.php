@@ -104,51 +104,30 @@
                         <td bgcolor="#ffffff" align="left" style="padding: 5px 10px 5px 30px; color: #666666; 
                         font-family: 'helvetica'; font-size: 14px; font-weight: 400; line-height: 25px;">
                             <p style="margin: 0;">
-                                @php
-                                    echo $content;
-                                @endphp
+                                silahkan klik link konfirmasi di bawah ini
                             </p>
-                           
-                        </td>
-                    </tr>
-
-                    @if($data)
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 5px 10px 5px 30px; color: #666666; 
-                        font-family: 'helvetica'; font-size: 14px; font-weight: 400; line-height: 25px;">
+                            <br>
+                            <a href="{{url($link)}}" class="btn btn-sm btn-success">Klik Disisini</a>
+                            <br>
                             <p style="margin: 0;">
-                                @php
-                                    echo $data;
-                                @endphp
+                                alternatif link klik disini
                             </p>
+                            <br>
+                            <a href="{{url($link)}}">{{url($link)}}</a>
                            
                         </td>
                     </tr>
-                    @endif
 
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 5px 10px 5px 30px; color: #666666; 
                         font-family: 'helvetica'; font-size: 14px; font-weight: 400; line-height: 25px;">
                             <p style="margin: 0;">
-                                @php
-                                    echo $description;
-                                @endphp
+                               Best Regards
+                               Admin
                             </p>
                            
                         </td>
                     </tr>
-
-                    @if($link != '')
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 5px 10px 5px 30px; color: #666666; 
-                        font-family: 'helvetica'; font-size: 14px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">
-                                {{$link}}
-                            </p>
-                           
-                        </td>
-                    </tr>
-                    @endif
 
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; 

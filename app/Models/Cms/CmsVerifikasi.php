@@ -21,7 +21,7 @@ class CmsVerifikasi extends Model
 
         $save = CmsVerifikasi::create([
             "users_id"   =>$users_id,
-            "status"     =>'active',
+            "status"     =>'waiting',
             "expired_at" =>Date::addDate(3)
         ]);
 

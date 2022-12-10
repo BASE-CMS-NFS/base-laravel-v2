@@ -26,4 +26,9 @@ class Date {
         return $result;
     }
 
+    public static function now(){
+
+        return date('Y-m-d');
+    }
+
 }

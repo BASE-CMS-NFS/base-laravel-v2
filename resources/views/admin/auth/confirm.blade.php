@@ -8,6 +8,25 @@
  <!-- Error -->
  <div class="container-xxl container-p-y">
     <div class="misc-wrapper">
+      
+      @if(session()->has('error'))
+
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{session('error')}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      @endif
+
+      @if(session()->has('success'))
+
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>{{session('success')}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      @endif
+
       <h2 class="mb-2 mx-2">Sukses Registrasi</h2>
       <p class="mb-4 mx-2">Link confirmasi sudah di kirim ke email, silahkan check email :)</p>
 

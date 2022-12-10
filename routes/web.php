@@ -173,7 +173,10 @@ Route::middleware(['web'])->group(function () {
         Route::get('login',[GuestController::class, 'login'])->name('login');
         Route::get('register',[GuestController::class, 'register'])->name('register');
         Route::get('forget',[GuestController::class, 'forget'])->name('forget');
+        //confirmasi email
+        Route::get('verifikasi/{email}',[AuthController::class, 'validasiEmail']);
 
+        Route::get('verifikasi',[GuestController::class, 'verifikasi'])->name('verifikasi');
     });
 
     Route::group(['middleware' => ['guest','throttle:6,1']], function () {
@@ -181,6 +184,7 @@ Route::middleware(['web'])->group(function () {
         Route::post('sign-in',[AuthController::class, 'login']);
         Route::post('sign-up',[AuthController::class, 'register']);
         Route::post('forget-password',[AuthController::class, 'forget_password']);
+
 
     });
 

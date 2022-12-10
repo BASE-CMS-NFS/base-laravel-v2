@@ -8,6 +8,7 @@ use Image;
 use Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Nfs;
  
 class Helper {
 
@@ -54,6 +55,17 @@ class Helper {
 
     public static function uc($str){
         return ucfirst($str);
+    }
+
+    //GENERATE URL VERIFIKASI
+
+    public static function urlVerifikasi($email){
+        $en     = Nfs::Encrypt($email);
+
+        $result = url('verifikasi/'.$en);
+
+        return $result;
+
     }
 
 

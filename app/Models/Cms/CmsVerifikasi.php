@@ -12,15 +12,15 @@ class CmsVerifikasi extends Model
     protected $table = 'cms_verifikasi';
 
     protected $fillable = [
-        'users_id',
+        'email',
         'status',
         'expired_at'
     ];
 
-    public static function insertData($users_id){
+    public static function insertData($email){
 
         $save = CmsVerifikasi::create([
-            "users_id"   =>$users_id,
+            "email"     =>$email,
             "status"     =>'waiting',
             "expired_at" =>Date::addDate(3)
         ]);

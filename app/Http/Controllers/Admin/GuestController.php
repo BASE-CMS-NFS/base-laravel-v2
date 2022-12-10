@@ -27,6 +27,11 @@ class GuestController extends Controller
         return view('admin.auth.forget');
     }
 
+    public function verifikasi()
+    {
+        return view('admin.auth.confirm');
+    }
+
     public function welcome()
     {
         return view('welcome');

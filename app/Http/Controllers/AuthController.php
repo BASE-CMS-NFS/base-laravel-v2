@@ -51,8 +51,10 @@ class AuthController extends Controller
 
         if($check_user){
             Nfs::insertLogs('Register via web');
+            CmsVerifikasi::insertData($request->email);
+            Mail::to($request->email)->send(new EmailVerifikasi($request->email,Helper::urlVerifikasi($request->email)));
 
-            return redirect('/login')->with('success','You have successfully registered, please login');
+            return redirect('/verifikasi')->with('success','You have successfully registered, please login');
         }else{
             return back()->with('error','somethings else please try again');
         }
@@ -96,6 +98,9 @@ class AuthController extends Controller
                 return back()->with('error','somethings else please check email or password');
             }
         }elseif($user->status == 'notactive'){
+            //send email verifikasi
+            CmsVerifikasi::insertData($request->email);
+            Mail::to($request->email)->send(new EmailVerifikasi($request->email,Helper::urlVerifikasi($request->email)));
             return back()->with('error','please check email to verification account');
         }else{
             return back()->with('error','your account suspend by admin, please contact admin to solve this problem');
@@ -161,15 +166,30 @@ class AuthController extends Controller
     public function validasiEmail($email)
     {
         $data_email = Nfs::Decrypt($email);
+
         $check      = CmsVerifikasi::where('email',$data_email)
-                      ->where('status','waiting')
+                      ->orderBy('created_at','desc')
                       ->first();
 
-        if(Date::now() <= $check->expired_at){
-            CmsVerifikasi::where('email',$data_email)->update([
-                "status"    =>'approve',
-                "updated_at"=>date('Y-m-d')
-            ]);
+        if($check->status == 'waiting'){
+            if(Date::now() <= $check->expired_at){
+                CmsVerifikasi::where('email',$data_email)->update([
+                    "status"    =>'approve',
+                    "updated_at"=>date('Y-m-d H:i:s')
+                ]);
+
+                User::where('email',$data_email)->update([
+                    "status"    =>'active',
+                    "updated_at"=>date('Y-m-d H:i:s')
+                ]);
+
+                return redirect('/login')->with('success','You have successfully registered, please login');
+            }else{
+                return redirect('/login')->with('error','Link sudah kadaluarsa');
+            }
+
+        }else{
+            return redirect('/login')->with('error','Link sudah digunakan');
         }
     }
 

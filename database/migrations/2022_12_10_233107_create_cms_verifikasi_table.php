@@ -15,7 +15,7 @@ class CreateCmsVerifikasiTable extends Migration
     {
         Schema::create('cms_verifikasi', function (Blueprint $table) {
             $table->id();
-            $table->integer('users_id');
+            $table->string('email');
             $table->string('status');
             $table->date('expired_at');
             $table->timestamps();

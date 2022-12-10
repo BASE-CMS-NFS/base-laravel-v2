@@ -75,7 +75,6 @@
     <!-- HIDDEN PREHEADER TEXT -->
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
-        @if($image != '')
         <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
@@ -88,7 +87,6 @@
                 </table>
             </td>
         </tr>
-        @endif
 
         <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 0px 10px 0px 10px;">
@@ -133,7 +131,7 @@
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; 
                         border-radius: 0px 0px 4px 4px; color: #666666;
                          font-family: 'helvetica'; font-size: 14px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">Terimakasih,<br>Salam dari <br>{{$from_name}} !</p>
+                            <p style="margin: 0;">Terimakasih,<br>Salam dari <br>whatspro.id !</p>
                         </td>
                     </tr>
                 </table>
@@ -147,8 +145,6 @@
                         border-radius: 4px 4px 4px 4px; color: #565658; font-family: 'helvetica'; font-size: 14px; font-weight: 400; line-height: 25px;">
                             <h2 style="font-size: 20px; font-weight: 400; text-align:center;color: #463a3a; margin: 0;">Customer Support</h2>
                             <br>
-                            <a href="mailto:{{$from_email}}">{{$from_email}}</a>
-                            &nbsp;&nbsp;
 						    <p style="margin-bottom: 10px; text-align: center;">Copyright {{date('Y')}}</p>
                         </td>
                     </tr>

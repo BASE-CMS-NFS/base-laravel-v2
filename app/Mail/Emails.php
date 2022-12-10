@@ -31,7 +31,7 @@ class Emails extends Mailable
      */
     public function build()
     {
-        return $this->from($this->content->from_email , $this->content->from_name)
+        return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
                     ->subject($this->content->subject)
                     ->markdown('template_email.email_default', 
                         [

@@ -41,6 +41,7 @@
           class="img-fluid"
           data-app-dark-img="illustrations/page-misc-error-dark.png"
           data-app-light-img="illustrations/page-misc-error-light.png"
+          style="border-radius:16px"
         />
       </div>
     </div>

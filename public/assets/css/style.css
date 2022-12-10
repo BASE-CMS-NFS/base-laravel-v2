@@ -1,0 +1,40 @@
+.banner{
+    background-color: rgb(246 184 57 / 88%);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.title-card{
+    color: rgb(255 252 252);
+    font-weight: 600;
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    padding-bottom: 15px;
+  }
+  
+  .scrollmenu a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+
+  #no-data {
+    width: 100px;
+    position: relative;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes example {
+    0%   {background-color:red; left:0px;border-radius: 10px;}
+    25%  {background-color:yellow; left:100px;border-radius: 10px;}
+    50%  {background-color:rgb(255, 139, 30); left:0px;border-radius: 10px;}
+    75%  {background-color:rgb(255, 243, 79); left:-100px;border-radius: 10px;}
+    100% {background-color:red; left:0px;border-radius: 10px;}
+  }

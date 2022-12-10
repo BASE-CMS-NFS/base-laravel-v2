@@ -28,16 +28,85 @@ class Nfs {
     //default nama app
     public static function app(){
         
-        $fetch_app = CmsSettings::where('name','app')->first();
+        return "Whatspro.id";
+    }
 
-        if($fetch_app){
-            $app = $fetch_app->value;
-        }else{
-            $app = 'Ngebug';
+    public static function content($name){
+
+        if($name == 'app'){
+            $app = CmsSettings::where('name','app')->first();
+
+            if($app){
+                $result = $app->value;
+            }else{
+                $result = 'App';
+            }
         }
 
-        
-        return "Whatspro.id";
+        if($name == 'email'){
+            $email = CmsSettings::where('name','email')->first();
+
+            if($email){
+                $result = $email->value;
+            }else{
+                $result = 'demo@gmail.com';
+            }
+        }
+
+        if($name == 'phone'){
+            $phone = CmsSettings::where('name','phone')->first();
+
+            if($phone){
+                $result = $phone->value;
+            }else{
+                $result = '0822233344455';
+            }
+        }
+
+        if($name == 'phone'){
+            $domain = CmsSettings::where('name','domain')->first();
+
+            if($domain){
+                $result = $domain->value;
+            }else{
+                $result = 'demo.com';
+            }
+        }
+
+        if($name == 'logo'){
+            $logo = CmsSettings::where('name','logo')->first();
+
+            if($logo){
+                $result = url('storage/'.$logo->image);
+            }else{
+                $result = url('asstes/custom/default/logo.png');
+            }
+        }
+
+        if($name == 'favicon'){
+            $favicon = CmsSettings::where('name','favicon')->first();
+
+            if($favicon){
+                $result = url('storage/'.$favicon->image);
+            }else{
+                $result = url('asstes/custom/default/favicon.ico');
+            }
+        }
+
+        if($name == 'profile_image'){
+            $profile_image = CmsSettings::where('name','profile_image')->first();
+
+            if($profile_image){
+                $result = url('storage/'.$profile_image->image);
+            }else{
+                $result = url('asstes/custom/default/profile.png');
+            }
+        }
+
+
+        return $result;
+
+
     }
 
     //default route admin

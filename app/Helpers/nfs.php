@@ -79,7 +79,7 @@ class Nfs {
             if($logo->image){
                 $result = url('storage/'.$logo->image);
             }else{
-                $result = url('asstes/custom/default/logo.png');
+                $result = url('custom/default/logo.png');
             }
         }
 
@@ -89,7 +89,7 @@ class Nfs {
             if($favicon->image){
                 $result = url('storage/'.$favicon->image);
             }else{
-                $result = url('asstes/custom/default/favicon.ico');
+                $result = url('custom/default/favicon.ico');
             }
         }
 
@@ -99,7 +99,7 @@ class Nfs {
             if($profile_image->image){
                 $result = url('storage/'.$profile_image->image);
             }else{
-                $result = url('asstes/custom/default/profile.png');
+                $result = url('custom/default/profile.png');
             }
         }
 

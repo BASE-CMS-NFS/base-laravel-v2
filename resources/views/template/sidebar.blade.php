@@ -44,7 +44,7 @@
 
             @else
 
-            <li class="menu-item @if($link=='account' or $link=='password') open active @endif">
+            <li class="menu-item @if($link==$menu_access->url) open active @endif">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx {{$menu_access->icon}}"></i>
                 <div data-i18n="Account Settings">{{$menu_access->name}}</div>
@@ -65,6 +65,27 @@
             @endif
             
         @endforeach
+
+        {{-- account setting --}}
+
+        <li class="menu-item @if($link=='account' or $link=='password') open active @endif">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-user"></i>
+            <div data-i18n="Account Settings">Account Settings</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item @if($link=='account') active @endif ">
+              <a href="{{url('account')}}" class="menu-link">
+                <div data-i18n="Account">Account</div>
+              </a>
+            </li>
+            <li class="menu-item @if($link=='password') active @endif">
+              <a href="{{url('password')}}" class="menu-link">
+                <div data-i18n="Notifications">Change Password</div>
+              </a>
+            </li>
+          </ul>
+        </li>
 
       @endauth
 

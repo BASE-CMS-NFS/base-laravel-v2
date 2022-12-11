@@ -18,6 +18,7 @@ use App\Http\Controllers\Cms\UsersController;
 use App\Http\Controllers\Cms\CmsMenusDetailController;
 use App\Http\Controllers\Cms\CmsEmailsController;
 use App\Http\Controllers\Cms\CmsDocumentController;
+use App\Http\Controllers\Cms\CmsManagementUsersController;
 
 // MANAGEMENT CLASS
 use App\Http\Controllers\Microservice\LinkedinController;
@@ -36,6 +37,12 @@ use App\Http\Controllers\Microservice\InstagramController;
 Route::middleware(['web'])->group(function () {
 
     Route::group(['middleware' => ['auth']], function () {
+
+        Route::get("account",[CmsManagementUsersController::class,"account"]);
+        Route::get("password",[CmsManagementUsersController::class,"password"]);
+        Route::post("account/update",[CmsManagementUsersController::class,"account_update"]);
+        Route::post("password/update",[CmsManagementUsersController::class,"password_update"]);
+
         //URL AUTO GENERATE
 
         Route::get("linkedin/{menu_detail}",[LinkedinController::class,"index"]);

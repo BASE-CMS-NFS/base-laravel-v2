@@ -182,8 +182,9 @@ class AuthController extends Controller
                 ]);
 
                 User::where('email',$data_email)->update([
-                    "status"    =>'active',
-                    "updated_at"=>date('Y-m-d H:i:s')
+                    "status"            =>'active',
+                    "email_verified_at" =>date('Y-m-d H:i:s'),
+                    "updated_at"        =>date('Y-m-d H:i:s')
                 ]);
 
                 return redirect('/login')->with('success','You have successfully registered, please login');

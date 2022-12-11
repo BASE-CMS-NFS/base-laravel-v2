@@ -124,7 +124,7 @@ class CmsManagementUsersController extends Controller
 
             $update = User::where('id',Session::get('id'))->update(
                         [
-                            'password'       =>$request->password,                        
+                            'password'       =>$password,                        
                         ]
                     );
             if($update){

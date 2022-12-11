@@ -41,7 +41,7 @@
     {{-- whatsapp --}}
     <div class="buy-now">
       <a
-        href="https://api.whatsapp.com/send?phone=6282132715484"
+        href="https://api.whatsapp.com/send?phone={{Nfs::content('phone')}}"
         target="_blank"
         class="btn btn-danger btn-buy-now"
         ><i class="bx bxl-whatsapp"></i></a

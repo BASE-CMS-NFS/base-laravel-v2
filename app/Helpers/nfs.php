@@ -63,7 +63,7 @@ class Nfs {
             }
         }
 
-        if($name == 'phone'){
+        if($name == 'domain'){
             $domain = CmsSettings::where('name','domain')->first();
 
             if($domain){

@@ -335,28 +335,28 @@ class Nfs {
         $return = DB::table('cms_menus_detail')->insert([
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/{menu_detail}',
+                "url"         =>$fetch->url.'/{menu_id}',
                 "method"      =>'get',
                 "function"    =>'index($menu_id)',
                 "view"        =>'index.blade.php'
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/create/{menu_detail}',
+                "url"         =>$fetch->url.'/create/{menu_id}',
                 "method"      =>'get',
                 "function"    =>'create($menu_id)',
                 "view"        =>'create.blade.php'
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/edit/{menu_detail}/{id}',
+                "url"         =>$fetch->url.'/edit/{menu_id}/{id}',
                 "method"      =>'get',
                 "function"    =>'edit($menu_id,$id)',
                 "view"        =>'edit.blade.php'
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/show/{menu_detail}/{id}',
+                "url"         =>$fetch->url.'/show/{menu_id}/{id}',
                 "method"      =>'get',
                 "function"    =>'show($menu_id,$id)',
                 "view"        =>'show.blade.php'
@@ -377,9 +377,9 @@ class Nfs {
             ],
             [
                 "cms_menus_id"=>$cms_menus_id,
-                "url"         =>$fetch->url.'/destroy/{menu_detail}/{id}',
+                "url"         =>$fetch->url.'/destroy/{menu_id}/{id}',
                 "method"      =>'get',
-                "function"    =>'destroy($menu_detail,$id)',
+                "function"    =>'destroy($menu_id,$id)',
                 "view"        =>''
             ],
         ]);
